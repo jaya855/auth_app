@@ -1,0 +1,58 @@
+.navv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  background-color: aqua;
+
+}
+.myfooter{
+  background-color: black;
+  height: 5rem;
+
+}
+.ull{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  text-decoration: none;
+}
+
+li{
+  gap:10rem;
+  margin-left: 10rem;
+  font-weight: 500;
+  
+ 
+}
+
+.mid{
+  background-color: rgb(245, 203, 245);
+  margin-top: 0px;
+ height: 585px;
+}
+
+.authbuttons{
+  margin-right: 10rem;
+  
+}
+.myfooter{
+  display: flex;
+align-items: center;
+padding-left: 12rem;
+padding-right: 10rem;
+  justify-content: space-between;
+}
+.left{
+  color: white;
+}
+.right{
+  color: white;
+}
+button{
+  margin-right: 2rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  border-radius: 0.2rem;
+}
