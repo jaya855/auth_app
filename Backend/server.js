@@ -12,15 +12,46 @@ app.listen(port, () => {
 })
 
 app.post('/register',async(req,res) => {
-    try{
-        alert("backend reached bby")
-        const {email,password,name} = req.body;
-        console.log(req.body)
-        let newuser =await  User.create({email,password,name} );
-        res.status(201).json({message:'Registration Successful'});
+console.log("backend tk pauch gya 2")
+    try {
+        const { email, name, password } = req.body;
+        console.log(req.body);
+        let check=false;
+        let existingdata=await User.findOne({ email })
+        if (existingdata) {
+            check=true;
+            console.log("inside bro")
+            return res.status(409).json({
+                success: false,
+                message: "user already registered"
+
+            });
+
+        }
+        console.log("back bro")
+
+        if(check==false) 
+        console.log("1");
+ let data=req.body
+        let newuser =await  User.create(data);
+        console.log("2");
+        // await newuser.save();
+        console.log("3");
+        // res.status().json({
+       res.status(201).json({
+            success: true,
+            message: "user registration done successful"
+        });
+        console.log("4");
     }
-    catch(error){
-        res.status(500).json({error:'Registration failed'});
+    catch (error) {
+        console.log("5")
+        console.log(error.message)
+        res.status(500).json({
+            
+            success: false,
+            message: "user registration failed due to some interal server issues"
+        });
     }
 })
 
@@ -28,18 +59,18 @@ app.post('/register',async(req,res) => {
 //login
 app.post('/login', async (req, res) => {
     try {
-        const { email, name, password } = req.body;
-        const user = User.findOne({ email });
+        const { email,password } = req.body;
+        const user = await User.findOne({ email });
         if (!user) {
-            return res.status(401).json({ message: "user not registered" });
+            return res.status(401).json({ success : false,message: "user not registered"});
         }
         if (password !== user.password) {
-            return res.status(401).json({ message: "enter correct password" });
+            return res.status(401).json({ success : false, message: "enter correct password" });
         }
-        res.status(200).json({ message: "user successfully logged in" })
+        res.status(200).json({success : true,  message: "user successfully logged in" , userDetails :{email} })
     }
     catch (error) {
-        res.status(500).json({ message: "not able to logged in" });
+        res.status(500).json({success : false,  message: "not able to logged in" });
     }
 
 
