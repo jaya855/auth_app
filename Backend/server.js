@@ -11,27 +11,32 @@ app.listen(port, () => {
     console.log("app is running at port 8000");
 })
 
-//registration
+
 
 // app.post('/register', async (req, res) => {
+//     alert("i reached backend");
 //     console.log("backend tk pauch gya")
 //     try {
 //         const { email, name, password } = req.body;
 //         console.log(req.body);
 
-        // if (User.findOne({ email })) {
-        //     res.status(409).json({
-        //         success: false,
-        //         error: "user already registered"
-        //     });
-        // }
+        
+
+//         const existingUser = await User.findOne({ email });
+// 		if (existingUser) {
+// 			return res.status(400).json({
+// 				success: false,
+// 				message: "User already exists. Please sign in to continue.",
+// 			});
+// 		}
+
 //         console.log("1");
 //  let data=req.body
 //         let newuser =await  User.create(data);
 //         console.log("2");
 //         // await newuser.save();
 //         console.log("3");
-//         res.json({
+//          res.status(201).json({
        
 //             success: true,
 //             message: "user registration done successful"
@@ -44,17 +49,19 @@ app.listen(port, () => {
 //         res.status(500).json({
             
 //             success: false,
-//             error: "user registration failed due to some interal server issues"
+//             message: "user registration failed due to some interal server issues"
 //         });
 //     }
 // })
 
 app.post('/register',async(req,res) => {
     try{
+        alert("backend reached bby")
         const {email,password,name} = req.body;
         console.log(req.body)
-        const user = new User({email,password,name});
-        await user.save();
+        // const user = new User({email,password,name});
+        // await user.save();
+        let newuser =await  User.create({email,password,name} );
         res.status(201).json({message:'Registration Successful'});
     }
     catch(error){
@@ -72,15 +79,15 @@ app.post('/login', async (req, res) => {
         const { email, name, password } = req.body;
         const user = User.findOne({ email });
         if (!user) {
-            res.status(401).json({ error: "user not registered" });
+            return res.status(401).json({ message: "user not registered" });
         }
         if (password !== user.password) {
-            res.status(401).json({ error: "enter correct password" });
+            return res.status(401).json({ message: "enter correct password" });
         }
         res.status(200).json({ message: "user successfully logged in" })
     }
     catch (error) {
-        res.status(500).json({ error: "not able to logged in" });
+        res.status(500).json({ message: "not able to logged in" });
     }
 
 
