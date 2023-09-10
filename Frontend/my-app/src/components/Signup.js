@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-import { Navigate, form } from 'react-router-dom'
+import {  form, useNavigate } from 'react-router-dom'
 import './formDesign.css';
 import axios from 'axios';
 import Dashboard from './Dashboard';
-
-
-
 const Signup = () => {
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({ email: '', password: '', name: '' });
   const onChangeHandle = (e) => {
     const { value, name } = e.target;
@@ -18,13 +16,13 @@ const Signup = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //  console.log(formData);
     try {
       const response = await axios.post('http://localhost:8000/register', formData);
-      
-      console.log(response.data.message);
+      console.log("err");
+      console.log(response);
+
       // alert(response.data.message);
-      Navigate('/Login');
+      navigate('/Login');
     }
     catch (error) {
       console.log(error);
@@ -32,6 +30,7 @@ const Signup = () => {
     }
 
   }
+
 
   return (
     <div className='myformdiv'>

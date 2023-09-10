@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import { form } from 'react-router-dom'
 import './formDesign.css';
+import { Navigate,useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
+  const Navigate=useNavigate();
   const [formData,setFormData]=useState({email:'',password:'',});
+  
   const onChangeHandle=(e)=>{
        const {value,name} = e.target;
         setFormData((prevData)=>({
@@ -12,9 +16,19 @@ const Login = () => {
         
        }));
   }
-  const handleSubmit=(e)=>{
+  const handleSubmit=async(e)=>{
      e.preventDefault();
      console.log(formData);
+     try{
+     const response = await axios.post("http://localhost:8000/login",formData);
+     console.log(response);
+      alert(response.data.message);
+     Navigate('/Dashboard');
+     }
+     catch(error){
+      console.log(error);
+      alert(error.response.data.message);
+     }
   }
   return (
     <div className='myformdiv'>
