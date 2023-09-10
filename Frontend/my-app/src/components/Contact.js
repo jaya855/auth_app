@@ -3,7 +3,7 @@ import React from 'react'
 const Contact = () => {
   const mystyle = {
     color: "white",
-    backgroundColor:"#66FF99",
+    backgroundColor:"#E76161",
     display:"flex",
     fontFamily: "Arial",
     alignItems: "center",

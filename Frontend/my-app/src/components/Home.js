@@ -3,7 +3,8 @@ import React from 'react'
 const Home = () => {
   const mystyle = {
     color: "white",
-    backgroundColor: "#FFB699",
+    // backgroundColor: "#FFB699",
+    backgroundColor: "#102C57",
     display:"flex",
     fontFamily: "Arial",
     alignItems: "center",

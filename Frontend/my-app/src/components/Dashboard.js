@@ -3,7 +3,7 @@ import React from 'react'
 const Dashboard = () => {
   const mystyle = {
     color: "white",
-    backgroundColor: "rgb(2, 13, 152)",
+    backgroundColor: "rgb(2, 13, 25)",
     display:"flex",
     fontFamily: "Arial",
     alignItems: "center",

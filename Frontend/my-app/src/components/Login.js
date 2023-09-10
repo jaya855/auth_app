@@ -22,13 +22,19 @@ const Login = () => {
      try{
      const response = await axios.post("http://localhost:8000/login",formData);
      console.log(response);
-      alert(response.data.message);
-     Navigate('/Dashboard');
+      // alert(response.data.message);
+        Navigate('/Dashboard');
      }
      catch(error){
       console.log(error);
       alert(error.response.data.message);
      }
+     setFormData(
+      {
+        email:'',
+        password:'',
+      }
+     )
   }
   return (
     <div className='myformdiv'>

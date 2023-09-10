@@ -4,7 +4,8 @@ const About = () => {
   
     const mystyle = {
       color: "white",
-      backgroundColor: "DodgerBlue",
+      // backgroundColor: "DodgerBlue",
+      backgroundColor : "#E57C23",
       display:"flex",
       fontFamily: "Arial",
       alignItems: "center",
