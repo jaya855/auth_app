@@ -13,7 +13,7 @@ const Contact = () => {
   };
   return (
     <div style={mystyle}>
-    Hello This is your Contact page
+    Hello !! This is your Contact page
   </div>
   )
 }

@@ -15,7 +15,7 @@ const Home = () => {
   return (
 
     <div style={mystyle}>
-      Hello This is your Home page
+      Hello !! This is your Home page
     </div>
   )
 }

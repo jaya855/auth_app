@@ -16,7 +16,7 @@ const About = () => {
   
    return (
     <div style={mystyle}>
-      Hello This is your About page
+      Hello !! This is your About page
     </div>
   )
 }

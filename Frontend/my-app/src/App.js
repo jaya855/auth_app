@@ -16,9 +16,9 @@ function App() {
     <nav className='navv'>
       < div>
         <ul className='ull'>
-          <li><Link to="/" style={{textDecoration: 'none'}}>HOME</Link></li>
-          <li><Link to="/About" style={{textDecoration: 'none'}}>ABOUT</Link></li>
-          <li><Link to="/Contact" style={{textDecoration: 'none'}}>CONTACT</Link></li>
+          <li><Link to="/" style={{textDecoration: 'none',color:'#3C2A21'}}>HOME</Link></li>
+          <li><Link to="/About" style={{textDecoration: 'none',color:'#3C2A21'}}>ABOUT</Link></li>
+          <li><Link to="/Contact" style={{textDecoration: 'none',color:'#3C2A21'}}>CONTACT</Link></li>
          </ul>
       </div>
       <div className='authbuttons'>
