@@ -11,56 +11,11 @@ app.listen(port, () => {
     console.log("app is running at port 8000");
 })
 
-
-
-// app.post('/register', async (req, res) => {
-//     alert("i reached backend");
-//     console.log("backend tk pauch gya")
-//     try {
-//         const { email, name, password } = req.body;
-//         console.log(req.body);
-
-        
-
-//         const existingUser = await User.findOne({ email });
-// 		if (existingUser) {
-// 			return res.status(400).json({
-// 				success: false,
-// 				message: "User already exists. Please sign in to continue.",
-// 			});
-// 		}
-
-//         console.log("1");
-//  let data=req.body
-//         let newuser =await  User.create(data);
-//         console.log("2");
-//         // await newuser.save();
-//         console.log("3");
-//          res.status(201).json({
-       
-//             success: true,
-//             message: "user registration done successful"
-//         });
-//         console.log("4");
-//     }
-//     catch (error) {
-//         console.log("5")
-//         console.log(error.message)
-//         res.status(500).json({
-            
-//             success: false,
-//             message: "user registration failed due to some interal server issues"
-//         });
-//     }
-// })
-
 app.post('/register',async(req,res) => {
     try{
         alert("backend reached bby")
         const {email,password,name} = req.body;
         console.log(req.body)
-        // const user = new User({email,password,name});
-        // await user.save();
         let newuser =await  User.create({email,password,name} );
         res.status(201).json({message:'Registration Successful'});
     }
@@ -68,9 +23,6 @@ app.post('/register',async(req,res) => {
         res.status(500).json({error:'Registration failed'});
     }
 })
-
-
-
 
 
 //login

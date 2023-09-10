@@ -20,8 +20,6 @@ const Signup = () => {
       const response = await axios.post('http://localhost:8000/register', formData);
       console.log("err");
       console.log(response);
-
-      // alert(response.data.message);
       navigate('/Login');
     }
     catch (error) {
