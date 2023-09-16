@@ -1,15 +1,22 @@
-const port = 8000;
+
 const dbconnect = require('./DB/dbconnect')
 const express = require('express');
+const dotenv=require('dotenv');
 const app = express();
-const cors = require('cors')
-app.use(cors());
 const User = require('./DB/user');
+const cors = require('cors')
+dotenv.config();
+
+app.use(cors());
+
 dbconnect();
 app.use(express.json());
+const port=process.env.port || 4000;
 app.listen(port, () => {
-    console.log("app is running at port 8000");
+    console.log(`app is running at port ${port}`);
 })
+
+
 
 app.post('/register',async(req,res) => {
 console.log("backend tk pauch gya 2")
